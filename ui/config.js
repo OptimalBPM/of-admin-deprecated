@@ -7,23 +7,11 @@ System.config({
   },
 
   packages: {
-    "/admin/scripts": {
+    "/admin": {
       "defaultExtension": "ts"
     },
-    "/admin/controllers": {
-      "defaultExtension": "ts"
-    },
-    "/admin/directives": {
-      "defaultExtension": "ts"
-    },
-    "/admin/plugins": {
-      "defaultExtension": "ts"
-    },
-    "/admin/types": {
-      "defaultExtension": "ts"
-    },
-    "/admin/process": {
-      "defaultExtension": "ts"
+    "/admin/jspm_packages": {
+      "defaultExtension": "js"
     }
   },
 

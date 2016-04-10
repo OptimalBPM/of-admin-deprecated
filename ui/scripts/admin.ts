@@ -38,7 +38,7 @@ import {initNodes} from "./nodes";
 
 // These files are generated dynamically in runtime, ignore error
 // noinspection TypeScriptCheckImport
-import {initPlugins, initRoutes} from "../plugins/admin_init";
+import {initPlugins, initRoutes} from "../admin_init";
 
 import {AboutController} from "../controllers/about";
 import {AdminController} from "../controllers/admin";

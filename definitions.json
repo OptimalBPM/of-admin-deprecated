@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "admin": {
+      "description": "Optimal BPM Admin UI",
+      "dependencies": {},
+      "failOnError": true,
+      "hooks_module": "hooks"
+    }
+  }}
