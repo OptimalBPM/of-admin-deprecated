@@ -98,7 +98,7 @@ export class NodeManager implements NodeManagement {
     };
 
     onSubmit = (submit_data: any): void => {
-        console.log("onSubmit not implemented in " + this.getClassname + " base class!");
+        console.log("onSubmit not implemented in " + this.getClassname() + " base class!");
     };
     onInit = (schemaTreeController: SchemaTreeController) => {
         console.log("onInit not implemented in " + this.getClassname() + " base class!");
