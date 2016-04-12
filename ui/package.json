@@ -5,7 +5,9 @@
     "test": "karma start"
   },
   "format": "esm",
-  "dependencies": {},
+  "dependencies": {
+    "jspm": ""
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/OptimalBPM/mbe-nodes.git"
