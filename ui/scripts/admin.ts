@@ -118,8 +118,8 @@ function initApp() {
         angular.bootstrap($html, ["mainApp"]);
 
         let $scope: CustomRootScope = angular.element($html).scope() as CustomRootScope;
-        let BootstrapDialog: any;
-        $scope.BootstrapDialog = BootstrapDialog;
+
+        $scope.BootstrapDialog = (window as any).BootstrapDialog;
 
 
     });
