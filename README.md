@@ -1,4 +1,4 @@
-# The Optimal Framework Administrative interface plugin
+# The administrative interface plugin
 
 The admin interface is an Angular/SystemJS/JSPM-based web application.
 Its most important function is to expose the tree that keeps all settings and entities that matter to the configuration of the framework.
