@@ -120,8 +120,7 @@ function initApp() {
         let $scope: CustomRootScope = angular.element($html).scope() as CustomRootScope;
 
         $scope.BootstrapDialog = (window as any).BootstrapDialog;
-
-
+        
     });
 
 }

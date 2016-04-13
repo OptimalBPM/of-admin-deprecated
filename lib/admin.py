@@ -133,10 +133,14 @@ class CherryPyAdmin(object):
         plugins.
         :param _web_config: An instance of the CherryPy web configuration
         """
-        if len(self.plugins.keys()) == 0:
+
+        _empty_routes = "export function initRoutes($routeProvider) { console.log('admin_ui_init.ts: No plugins installed, so no routes to add.'); return $routeProvider; }"
+
+        if len(self.plugins.keys()) == 1:
             # If there are no plugins add dummy functions that log the status
-            self.admin_ui_init = "export function initRoutes($routeProvider) { console.log('admin_ui_init.ts: No plugins installed, so no routes to add.'); return $routeProvider; }"
-            self.admin_ui_init+= "export function initPlugins(app) { console.log('admin_ui_init.ts: No plugins installed, so no menus to initialize.'); }"
+            # *this* plugin has to be loaded if this is happening so we can safely assume that no plugins extend the interface if count i 1.
+            self.admin_ui_init = _empty_routes
+            self.admin_ui_init+= "export function initPlugins(app) { console.log('admin_ui_init.ts: No plugins installed, so nothing to initialize.'); }"
             self.admin_systemjs_init = "console.log('admin_jspm_config.js: No plugins installed, so no packages to add overrides for.');"
             self.admin_menus = "{}"
             return
@@ -205,6 +209,9 @@ class CherryPyAdmin(object):
                 # Add menus
                 if "menus" in _curr_ui_def:
                     _admin_menus += _curr_ui_def["menus"]
+
+        if _routes == "":
+            _routes = _empty_routes
 
         _result = _imports + "\nexport function initPlugins(app){\n" + _controllers + "\n" + _directives + "\n};\n" + \
                   "export function initRoutes($routeProvider) {\n$routeProvider" + _routes + "return $routeProvider }"

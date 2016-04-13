@@ -39,6 +39,7 @@ export class MainController {
             "bpm_menu_item_look",
             "bpm_menu_item_look bpm_menu_item_look_selected");
     };
+
     /* Return one class when selected and another when not */
     button_controller_selected_look = (routeName, unselected, selected) => {
         if (this.$route.current && ((this.$route.current as any).$$route.originalPath === routeName)) {
