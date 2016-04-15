@@ -19,7 +19,7 @@ System.config({
     "OptimalBPM/angular-schema-form-complex-ui": "github:OptimalBPM/angular-schema-form-complex-ui@master",
     "ace": "github:ajaxorg/ace-builds@1.2.3",
     "ajaxorg/ace-builds": "github:ajaxorg/ace-builds@1.2.3",
-    "angular": "github:angular/bower-angular@1.5.3",
+    "angular": "github:angular/bower-angular@1.5.4",
     "angular-animate": "github:angular/bower-angular-animate@1.5.3",
     "angular-cookies": "github:angular/bower-angular-cookies@1.5.3",
     "angular-route": "github:angular/bower-angular-route@1.5.3",
@@ -37,27 +37,27 @@ System.config({
     "bootstrap3-dialog": "github:nakupanda/bootstrap3-dialog@1.35.1",
     "css": "github:systemjs/plugin-css@0.1.20",
     "fatlinesofcode/ngDraggable": "github:fatlinesofcode/ngDraggable@0.1.8",
-    "font-awesome": "npm:font-awesome@4.5.0",
+    "font-awesome": "npm:font-awesome@4.6.1",
     "jquery": "npm:jquery@2.2.3",
     "networknt/angular-schema-form-ui-ace": "github:networknt/angular-schema-form-ui-ace@0.1.2",
-    "typescript": "npm:typescript@1.8.9",
+    "typescript": "npm:typescript@1.8.10",
     "github:angular-ui/ui-layout@1.4.2": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:angular/bower-angular-animate@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:angular/bower-angular-cookies@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:angular/bower-angular-route@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:angular/bower-angular-sanitize@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:angular/bower-angular-touch@1.5.3": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -78,7 +78,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:mgcrea/angular-strap@2.3.8": {
-      "angular": "github:angular/bower-angular@1.5.3"
+      "angular": "github:angular/bower-angular@1.5.4"
     },
     "github:nakupanda/bootstrap3-dialog@1.35.1": {
       "bootstrap": "github:twbs/bootstrap@3.3.6"
@@ -130,7 +130,7 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:font-awesome@4.5.0": {
+    "npm:font-awesome@4.6.1": {
       "css": "github:systemjs/plugin-css@0.1.20"
     },
     "npm:inherits@2.0.1": {
@@ -145,7 +145,7 @@ System.config({
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
-    "npm:typescript@1.8.9": {
+    "npm:typescript@1.8.10": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
     "npm:ui-select@0.11.2": {
