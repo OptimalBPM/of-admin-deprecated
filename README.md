@@ -10,9 +10,9 @@ Hence, it is build to be easily extended.
 
 When building any system, it is highly likely that it needs an an administrative interface.
 
-The main administrative interface is extended by:
-* adding definitions in the [schema folder](https://github.com/OptimalBPM/optimalbpm/tree/master/schemas) 
-* [adding nodes](https://github.com/OptimalBPM/optimalbpm/tree/master/testing) into the administrative tree 
+The main administrative interface is extended by another plugin by:
+* adding any definitions in the [schema folder](https://github.com/OptimalBPM/optimalbpm/tree/master/schemas) 
+* [adding any nodes](https://github.com/OptimalBPM/optimalbpm/tree/master/testing) into the administrative tree 
 * definining what menu items, angular directives/controller/routes to add in the [definitions.json](https://github.com/OptimalBPM/optimalbpm/blob/master/definitions.json) 
-* and publishing then in the [admin-ui folder](https://github.com/OptimalBPM/optimalbpm/tree/master/admin-ui) of the plugin
+* publishing their source in the [admin-ui folder](https://github.com/OptimalBPM/optimalbpm/tree/master/admin-ui) of the plugin
 
