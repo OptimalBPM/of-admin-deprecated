@@ -26,7 +26,7 @@ System.config({
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.5.3",
     "angular-schema-form": "npm:angular-schema-form@0.8.13",
     "angular-schema-form-bootstrap": "npm:angular-schema-form-bootstrap@0.2.0",
-    "angular-schema-form-dynamic-select": "npm:angular-schema-form-dynamic-select@0.12.4",
+    "angular-schema-form-dynamic-select": "npm:angular-schema-form-dynamic-select@0.13.1",
     "angular-strap": "github:mgcrea/angular-strap@2.3.8",
     "angular-touch": "github:angular/bower-angular-touch@1.5.3",
     "angular-ui-layout": "github:angular-ui/ui-layout@1.4.2",
@@ -92,11 +92,11 @@ System.config({
     "npm:angular-schema-form-bootstrap@0.2.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
-    "npm:angular-schema-form-dynamic-select@0.12.4": {
+    "npm:angular-schema-form-dynamic-select@0.13.1": {
       "angular-schema-form": "npm:angular-schema-form@0.8.13",
       "angular-strap": "npm:angular-strap@2.3.8",
       "bootstrap": "npm:bootstrap@3.3.6",
-      "ui-select": "npm:ui-select@0.11.2"
+      "ui-select": "npm:ui-select@0.14.10"
     },
     "npm:angular-schema-form@0.8.13": {
       "angular": "npm:angular@1.5.3",
@@ -148,7 +148,8 @@ System.config({
     "npm:typescript@1.8.10": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
-    "npm:ui-select@0.11.2": {
+    "npm:ui-select@0.14.10": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:util@0.10.3": {

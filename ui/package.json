@@ -62,7 +62,7 @@
       "angular-route": "github:angular/bower-angular-route@^1.4.4",
       "angular-sanitize": "github:angular/bower-angular-sanitize@^1.4.4",
       "angular-schema-form-bootstrap": "npm:angular-schema-form-bootstrap@^0.2.0",
-      "angular-schema-form-dynamic-select": "npm:angular-schema-form-dynamic-select@^0.12.1",
+      "angular-schema-form-dynamic-select": "npm:angular-schema-form-dynamic-select@^0.13.1",
       "angular-strap": "github:mgcrea/angular-strap@^2.3.2",
       "angular-touch": "github:angular/bower-angular-touch@^1.4.4",
       "angular-ui-layout": "github:angular-ui/ui-layout@^1.2.0",
