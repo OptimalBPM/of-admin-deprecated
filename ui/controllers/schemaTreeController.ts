@@ -13,8 +13,7 @@ export class SchemaTreeController {
 
 
     /** An object whose properties are used as a key-value(dictionary) for to the actual data for the trees entities
-     * These is
-     * not held in the tree because of possible naming conflicts(id, title) and ordering.  */
+     * These are not held in the tree because of possible naming conflicts(id, title) and ordering.  */
     data: Dict;
 
     /* TODO: Data should likely not be in the tree, but should be broken out. Why has allowedChildTypes to be set in setItemUi?

@@ -1,12 +1,12 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 
 /**
- * Module that implements a tree using MBE, a schema validated form and ui layout
+ * Module that implements a tree using schemaTree, a schema validated form and ui layout
 
  * @module nodes
  * @service Nodes
  * @author Nicklas Börjesson
- * @link https://www.github.com/optimalbpm/mbe
+ * @link https://www.github.com/optimalbpm/of
  */
 
 import "angular";
@@ -39,6 +39,8 @@ export class NodesController extends NodeManager implements NodeManagement {
     /** The groups variable holds a list of all the groups. */
     groups: any[];
 
+    /* Hold the options for the tree */
+    menuTreeOptions: any;
 
     /* TODO: Unresolved bug, sometimes nodes aren"t initialized correctly (undefined arrays) \n Possible to add nodes twice */
     /* TODO: Add proper($timeout-based) animation delay to tree */
@@ -231,7 +233,11 @@ export class NodesController extends NodeManager implements NodeManagement {
 
     };
 
-
+    /**
+     * Show the history of a node
+     * @param id
+     * @returns {IHttpPromise<any>}
+     */
     show_history = (id): ng.IHttpPromise<any> => {
 
         if (id !== this.tree.treeScope.newNodeObjectId) {
@@ -256,7 +262,10 @@ export class NodesController extends NodeManager implements NodeManagement {
         this.show_history(treeNode.id);
         this.tree.selectedItem = treeNode;
     };
-
+    onDropped = (event: any): void => {
+        event.source.nodeScope.parentId = event.dest.nodeScope.id
+        this.saveNode(this.tree.data[event.source.nodeScope.id])
+    };
     /**
      * Initialize the node controller
      * @param schemaTreeController
@@ -265,6 +274,9 @@ export class NodesController extends NodeManager implements NodeManagement {
         console.log("In NodesController.onInit");
         this.tree = schemaTreeController;
         this.tree.treeScope.nodeManager = this;
+        this.menuTreeOptions = {
+            "dropped": this.onDropped
+        };
     };
 
     // *********************** Initialization *************************

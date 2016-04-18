@@ -10,7 +10,7 @@ import IAugmentedJQueryStatic = angular.IAugmentedJQueryStatic;
  *
  * Main module of the application.
  */
-// sourceMappingUrl=main.js.map
+// sourceMappingUrl=init.js.map
 
 
 console.log("Before app defines");
