@@ -40,7 +40,7 @@ export class NodesController extends NodeManager implements NodeManagement {
     groups: any[];
 
     /* Hold the options for the tree */
-    menuTreeOptions: any;
+    treeOptions: any;
 
     /* TODO: Unresolved bug, sometimes nodes aren"t initialized correctly (undefined arrays) \n Possible to add nodes twice */
     /* TODO: Add proper($timeout-based) animation delay to tree */
@@ -263,8 +263,9 @@ export class NodesController extends NodeManager implements NodeManagement {
         this.tree.selectedItem = treeNode;
     };
     onDropped = (event: any): void => {
-        event.source.nodeScope.parentId = event.dest.nodeScope.id
-        this.saveNode(this.tree.data[event.source.nodeScope.id])
+        let nodeId: string = event.source.nodeScope.$modelValue.Id;
+        this.tree.data[nodeId].parentId = event.dest.nodesScope.parent.$modelValue.id;
+        this.saveNode(this.tree.data[nodeId]);
     };
     /**
      * Initialize the node controller
@@ -274,7 +275,8 @@ export class NodesController extends NodeManager implements NodeManagement {
         console.log("In NodesController.onInit");
         this.tree = schemaTreeController;
         this.tree.treeScope.nodeManager = this;
-        this.menuTreeOptions = {
+
+        this.treeOptions = {
             "dropped": this.onDropped
         };
     };

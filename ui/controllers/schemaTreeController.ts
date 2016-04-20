@@ -130,7 +130,9 @@ export class SchemaTreeController {
                 }
                 else {
                     for (let currIdx = 0; currIdx < item.allowedChildTypes.length; currIdx++) {
-
+                        if (!(item.allowedChildTypes[currIdx] in this.schemas)) {
+                            continue;
+                        }
                         let shortName = this.schemas[item.allowedChildTypes[currIdx]]["title"].toLowerCase();
                         if (currIdx === 0) {
                             item.ui.strAllowedChildTypes = item.ui.strAllowedChildTypes + shortName;
