@@ -1,5 +1,5 @@
-<div class="local_margins" ui-layout options="{ flow : 'column' }">
-    <div ui-layout-container class="layout_tree" size="25%" min-size="20%">
+<div class="local_margins"  options="{ flow : 'column' }">
+    <div class="layout_tree col-lg-4" style="height:100%">
         <h3 class="nodes-headings">Node tree</h3>
         <schema-tree
             item-renderer='views/nodes/node_renderer.html'
@@ -10,19 +10,22 @@
         </schema-tree>
 
     </div>
-    <div ui-layout-container class="layout_edit" size="50%" min-size="40%">
+    <div class="layout_edit col-lg-5" style="height:100%" ng-controller="NodesController">
+
         <h3 class="nodes-headings">Edit</h3>
         <!-- The schema editor, maps to the selected_* $scope variables in the controller -->
+
         <form name="ngform"
               sf-model="selected_data"
               sf-form="selected_form"
               sf-schema="selected_schema"
               sf-options=""
               ng-submit="nodeManager.doSubmit(selected_data)"></form>
+         </div>
 
     </div>
 
-    <div ui-layout-container class="layout_history" size="25%" min-size="20%">
+    <div class="layout_history col-lg-3" style="height:100%">
         <h3 class="nodes-headings">History</h3>
         <div ng-model="history" ng-repeat="historyItem in nodeManager.history">
             <b>Occurred when:</b> {{historyItem.occurredWhen}}<br/>

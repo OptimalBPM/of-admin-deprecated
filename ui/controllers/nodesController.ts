@@ -173,15 +173,15 @@ export class NodesController extends NodeManager implements NodeManagement {
      */
     onInitForms = (): ng.IHttpPromise<any> => {
 
-        return this.$http.get("views/nodes/node_forms.js")
+        return this.$http.get("views/nodes/node_forms.json")
             .success((data: any) => {
                 let _nodeSchemaRef: string = "of://node.json";
-                this.forms = {};
-                // Import the data, pass the tree scope to the function
-                let _data: Function = new Function("scope", data.toString()).call(this, this.tree);
-                let _nodeForm: any = _data[_nodeSchemaRef];
+                this.forms = data;
 
-                Object.keys(_data).forEach(
+                let _nodeForm: any = data[_nodeSchemaRef];
+
+                // Add the node.json fields in the beginning of all the other forms.
+                Object.keys(data).forEach(
                     (_currSchemaRef) => {
                         let _newForm: any;
                         if (_currSchemaRef === _nodeSchemaRef) {
@@ -191,7 +191,7 @@ export class NodesController extends NodeManager implements NodeManagement {
                         else {
                             // Insert form after nodename and description in base node form
                             _newForm = _nodeForm.slice(0);
-                            _newForm.splice.apply(_newForm, [2, 0].concat(_data[_currSchemaRef]));
+                            _newForm.splice.apply(_newForm, [2, 0].concat(data[_currSchemaRef]));
                         }
                         // Add submit and store the finished form.
                         this.forms[_currSchemaRef] = _newForm.concat(
@@ -218,14 +218,26 @@ export class NodesController extends NodeManager implements NodeManagement {
      * Set the currently edited schema form
      * @param node
      */
-    set_details = (node): void => {
+    setDetails = (node): void => {
         let schemaRef: string = "";
         this.nodeScope.selected_schema = null;
         if ("schemaRef" in node) {
             schemaRef = node["schemaRef"];
             this.nodeScope.selected_schema = this.tree.schemas[schemaRef];
             // Set form and add save/submit button
-            this.nodeScope.selected_form = this.forms[schemaRef];
+            if (schemaRef in this.forms) {
+                this.nodeScope.selected_form = this.forms[schemaRef];
+            }
+            else {
+                console.log("No form definition for " + schemaRef.toString() + ", using \"*\"");
+                this.nodeScope.selected_form = ["*"];
+            }
+
+
+        }
+        else
+        {
+            console.log("No schema ref in node: " + node.toString())
         }
 
         this.nodeScope.selected_data = node;
@@ -238,7 +250,7 @@ export class NodesController extends NodeManager implements NodeManagement {
      * @param id
      * @returns {IHttpPromise<any>}
      */
-    show_history = (id): ng.IHttpPromise<any> => {
+    showHistory = (id): ng.IHttpPromise<any> => {
 
         if (id !== this.tree.treeScope.newNodeObjectId) {
             return this.loadHistory(id)
@@ -258,8 +270,8 @@ export class NodesController extends NodeManager implements NodeManagement {
      */
     onSelectNode = (treeNode): void => {
 
-        this.set_details(this.tree.data[treeNode.id]);
-        this.show_history(treeNode.id);
+        this.setDetails(this.tree.data[treeNode.id]);
+        this.showHistory(treeNode.id);
         this.tree.selectedItem = treeNode;
     };
     onDropped = (event: any): void => {
