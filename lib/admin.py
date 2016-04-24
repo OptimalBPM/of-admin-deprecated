@@ -42,18 +42,17 @@ class CherryPyAdmin(object):
     #: A list of the available menus
     admin_menus = None
 
-    def __init__(self, _database_access, _process_id, _address, _stop_broker, _monitor, _root_object,
+    def __init__(self, _database_access, _process_id, _address, _stop_broker, _root_object,
                  _plugins, _web_config):
         write_to_log(_category=EC_SERVICE, _severity=SEV_DEBUG, _process_id=_process_id,
                      _data="Initializing administrative REST API.")
 
         self.stop_broker = _stop_broker
-        self.monitor = _monitor
 
         self.process_id = _process_id
         self.address = _address
         self.database_access = _database_access
-        self.node = CherryPyNode(_database_access=_database_access)
+        self.node = _root_object.node
         self.root = _root_object
         self.plugins = _plugins
 
