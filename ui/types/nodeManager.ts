@@ -121,7 +121,7 @@ export class NodeManager implements NodeManagement {
 
     constructor(private $scope: NodesScope, $http: ng.IHttpService, $q: ng.IQService) {
 
-        console.log("Initiating the nodes manager base class" + $scope.toString());
+        console.log("Initiating the nodes manager base class " + this.getClassname());
         $scope.nodeManager = this;
         this.nodeScope = $scope;
         this.$q = $q;

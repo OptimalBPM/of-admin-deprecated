@@ -235,9 +235,8 @@ export class NodesController extends NodeManager implements NodeManagement {
 
 
         }
-        else
-        {
-            console.log("No schema ref in node: " + node.toString())
+        else {
+            console.log("No schema ref in node: " + node.toString());
         }
 
         this.nodeScope.selected_data = node;

@@ -106,6 +106,9 @@ export class SchemaTreeController {
             }
 
         }
+        else {
+            console.log("Nodemanager has no onInit: " + this.toString());
+        }
     };
 
     /**

@@ -67,7 +67,7 @@
                                     "startEmpty": true,
                                     "options": {
                                         "multiple": "true",
-                                        "callback": "$parent.nodeManager.tree.lookupChildNodeTypes"
+                                        "callback": "this.nodeManager.tree.lookupChildNodeTypes"
                                     }
                                 }
                             ]
