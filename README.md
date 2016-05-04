@@ -6,6 +6,19 @@ Its most important function is to expose the tree that keeps all settings and en
 It is thought of as being the starting point of an administrative interface to any system that is build upon the framework.
 Hence, it is build to be easily extended.
 
+
+## Installing
+
+Just clone this repository into the plugins-folder.
+```sh
+git clone https://github.com/OptimalBPM/of-admin.git admin
+```
+
+### Requirements:
+
+Note, as the installation uses npm and jspm, there is a certain memory requirement.
+For example, box needs about 800 megabytes of *free* memory to run npm and jspm properly, having less may result in strange and unnoticable errors.
+
 ## Extending
 
 When building any system, it is highly likely that it needs an an administrative interface.
