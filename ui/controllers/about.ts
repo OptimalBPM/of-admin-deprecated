@@ -12,7 +12,7 @@ export class AboutController {
 
     get_about_data = () => {
         this.$scope.broker_environment = "";
-        this.$http.get("/get_broker_environment").success((data, status, headers, config) => {
+        this.$http.get("/admin/get_broker_environment").success((data, status, headers, config) => {
             this.$scope.broker_environment = data;
 
         }).error((data, status, headers, config) => {

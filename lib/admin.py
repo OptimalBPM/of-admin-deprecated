@@ -14,7 +14,7 @@ from of.broker.cherrypy_api.node import aop_check_session,CherryPyNode
 from of.schemas.constants import id_right_admin_everything
 from of.common.security.groups import aop_has_right
 from of.common.logging import write_to_log, EC_SERVICE, SEV_DEBUG, EC_NOTIFICATION, SEV_ERROR
-
+from of.common.messaging.utils import get_environment_data
 
 class CherryPyAdmin(object):
     """
@@ -234,3 +234,12 @@ class CherryPyAdmin(object):
     @cherrypy.expose(alias="admin_jspm_config.js")
     def initialize_admin_systemjs(self, **kwargs):
         return self.admin_systemjs_init
+
+
+    @cherrypy.expose
+    @cherrypy.tools.json_out(content_type='application/json')
+    @aop_check_session
+    @aop_has_right([id_right_admin_everything])
+    def get_broker_environment(self, **kwargs):
+        write_to_log(_process_id=self.process_id, _category=EC_NOTIFICATION, _severity=SEV_DEBUG, _data="Request for broker information")
+        return get_environment_data()

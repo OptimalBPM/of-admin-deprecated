@@ -1,5 +1,4 @@
 from .lib.admin import CherryPyAdmin
-import of.common.messaging.websocket
 
 
 def init_web(_broker_scope):
