@@ -97,6 +97,7 @@ class CherryPyAdmin(object):
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out(content_type='application/json')
     @aop_check_session
+    @aop_has_right([id_right_admin_everything])
     def broker_control(self, **kwargs):
         return self.broker_ctrl(cherrypy.request.json["command"],
                                 cherrypy.request.json["reason"],
