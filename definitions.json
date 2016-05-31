@@ -10,7 +10,7 @@
           {
             "name":"initFramework",
             "description": "Called when initialising the Angular controllers and directives",
-            "parameters": ["$routeProvider"]
+            "parameters": ["app"]
           },
           {
             "name":"initRoutes",
