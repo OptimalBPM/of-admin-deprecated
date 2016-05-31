@@ -160,7 +160,7 @@ class CherryPyAdmin(object):
                 _curr_hook_def += "};\n"
             _hook_defs+=_curr_hook_def + "\n}\n"
 
-        return _presentation + _imports + "\n" + _hook_defs
+        return _presentation + str(_imports) + "\n" + _hook_defs
 
 
 
@@ -170,18 +170,8 @@ class CherryPyAdmin(object):
         plugins.
         :param _web_config: An instance of the CherryPy web configuration
         """
-        self.refresh_hooks()
-        _empty_routes = "export function initRoutes($routeProvider) { console.log('admin_ui_init.ts: No plugins installed, so no routes to add.'); return $routeProvider; }"
 
-        if len(self.plugins.keys()) == 1:
-            # If there are no plugins add dummy functions that log the status
-            # *this* plugin has to be loaded if this is happening so we can safely assume that no plugins extend the interface if count i 1.
-            self.admin_ui_hooks = "";
-            self.admin_ui_init = _empty_routes
-            self.admin_ui_init+= "export function initPlugins(app) { console.log('admin_ui_init.ts: No plugins installed, so nothing to initialize.'); }"
-            self.admin_systemjs_init = "console.log('admin_jspm_config.js: No plugins installed, so no packages to add overrides for.');"
-            self.admin_menus = "{}"
-            return
+
 
         self.admin_ui_hooks = self.refresh_hooks()
 
