@@ -4,6 +4,21 @@
       "description": "Optimal Framework Admin UI",
       "dependencies": {},
       "failOnError": true,
-      "hooks_module": "hooks"
+      "hooks_module": "hooks",
+      "admin-ui": {
+        "ui-hooks": [
+          {
+            "name":"initFramework",
+            "description": "Called when initialising the Angular controllers and directives",
+            "parameters": ["$routeProvider"]
+          },
+          {
+            "name":"initRoutes",
+            "description": "Called when initialising the Angular routes",
+            "parameters": ["$routeProvider"]
+          }        ],
+        "mountpoint": "."
+      }
+
     }
   }}

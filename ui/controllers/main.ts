@@ -49,7 +49,7 @@ export class MainController {
     };
 
     loadMenus = () => {
-        return this.$http.get("/admin/admin_menus.json")
+        return this.$http.get("/admin/menus.json")
             .success((data): any => {
                 this.menus = data;
                 console.log("loaded menus");

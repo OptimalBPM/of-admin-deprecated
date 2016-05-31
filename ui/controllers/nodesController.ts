@@ -57,7 +57,7 @@ export class NodesController extends NodeManager implements NodeManagement {
         if (parentId != null) {
             parentId = "ObjectId(" + parentId.toString() + ")";
         }
-        return this.$http.post("node/find", {"parent_id": parentId});
+        return this.$http.post("/node/find", {"parent_id": parentId});
     };
 
     /**
@@ -66,7 +66,7 @@ export class NodesController extends NodeManager implements NodeManagement {
      * @returns {IHttpPromise}
      */
     onAsyncRemoveNode = (nodeId: string): ng.IHttpPromise<any> => {
-        return this.$http.post("node/remove", {"_id": nodeId});
+        return this.$http.post("/node/remove", {"_id": nodeId});
     };
 
     /**
@@ -75,7 +75,7 @@ export class NodesController extends NodeManager implements NodeManagement {
      * @returns {IHttpPromise}
      */
     loadHistory = (historyId: string): ng.IHttpPromise<any> => {
-        return this.$http.post("node/history", {"_id": historyId});
+        return this.$http.post("/node/history", {"_id": historyId});
     };
 
     /**
@@ -104,7 +104,7 @@ export class NodesController extends NodeManager implements NodeManagement {
             delete saveData["_id"];
         }
 
-        return this.$http.post("node/save", saveData)
+        return this.$http.post("/node/save", saveData)
             .success((_id) => {
                 let strId: string = _id.toString();
                 saveData["_id"] = strId;
@@ -159,7 +159,7 @@ export class NodesController extends NodeManager implements NodeManagement {
      * Load all schemas
      */
     onInitSchemas = (): ng.IHttpPromise<any> => {
-        return this.$http.get("node/get_schemas")
+        return this.$http.get("/node/get_schemas")
             .success((data: any) => {
                 this.tree.schemas = data;
             })

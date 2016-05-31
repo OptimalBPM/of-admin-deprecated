@@ -3,8 +3,7 @@ from .lib.admin import CherryPyAdmin
 
 def init_web(_broker_scope):
     # Initialize admin user interface /admin
-    _broker_scope["web_root"].admin = CherryPyAdmin(_database_access=_broker_scope["database_access"],
-                                                    _process_id=_broker_scope["web_root"].process_id,
+    _broker_scope["web_root"].admin = CherryPyAdmin(_process_id=_broker_scope["web_root"].process_id,
                                                     _address=_broker_scope["address"],
                                                     _stop_broker=_broker_scope["stop_broker"],
                                                     _root_object=_broker_scope["web_root"],

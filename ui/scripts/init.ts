@@ -38,11 +38,9 @@ import {initNodes} from "./nodes";
 
 // These files are generated dynamically in runtime, ignore error
 // noinspection TypeScriptCheckImport
-import {initPlugins, initRoutes} from "../admin_init";
+import {hook_initFramework, hook_initRoutes} from "../hook_wrapper";
 
-import {AboutController} from "../controllers/about";
-import {AdminController} from "../controllers/admin";
-import {MainController} from "../controllers/main";
+
 import {CustomRootScope} from "../types/schemaTreeTypes";
 import IAugmentedJQuery = angular.IAugmentedJQuery;
 
@@ -54,7 +52,7 @@ declare var BootstrapDialog: any;
 function initApp() {
 
 
-    // First initialize mbefe
+    // First initialize the app
     initNodes();
     let app: any = angular
         .module("mainApp",
@@ -67,45 +65,12 @@ function initApp() {
                 "ngCookies"
                 // "ngRoute", "mgcrea.ngStrap", "ui.tree", "ui.ace", "schemaForm", "ui.layout", "ngAnimate", "schemaTreeModule"
             ]);
+    // Call the init framework hook
+    hook_initFramework(app);
 
-    // Register all controllers
-    app.controller("AdminController", ["$scope", "$timeout", AdminController]);
-    app.controller("MainController", ["$scope", "$http", "$route", MainController]);
-
-    app.controller("AboutController", ["$scope", "$http", AboutController]);
-
-
-    initPlugins(app);
-
-
-    app.directive("afterRepeat", function () {
-        // Do what is specified in "after-repeat" after a repeat is done.
-        return function (scope, element, attrs) {
-            if (scope.$last) {
-                angular.element(element).scope().$eval(attrs.afterRepeat);
-            }
-        };
-    });
-    // Configure all routes
     app.config(($routeProvider) => {
-        initRoutes($routeProvider)
-            .when("/analysis", {
-                templateUrl: "views/analysis.html",
-
-            })
-            .when("/admin", {
-                templateUrl: "views/admin.html",
-                // This is the mbe-nodes external directive, it needs an associated controller
-                controller: "AdminController"
-            })
-            .when("/about", {
-                templateUrl: "views/about.html",
-                controller: "AboutController"
-            })
-            .otherwise({
-                redirectTo: "/about"
-            });
-
+        // Initialize all routes
+        hook_initRoutes($routeProvider);
     });
 
     // Find the html angular element.
@@ -120,7 +85,7 @@ function initApp() {
         let $scope: CustomRootScope = angular.element($html).scope() as CustomRootScope;
 
         $scope.BootstrapDialog = (window as any).BootstrapDialog;
-        
+
     });
 
 }
