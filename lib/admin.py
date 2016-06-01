@@ -157,7 +157,7 @@ class CherryPyAdmin(object):
                 _hook_alias = _curr_plugin_key + "_" + _hook["name"]
                 _curr_hook_def += "    if (" + _hook_alias + ") {\n"
                 _curr_hook_def += "        " + _hook_alias + "(" + _param_list + ");\n"
-                _curr_hook_def += "};\n"
+                _curr_hook_def += "    };\n"
             _hook_defs+=_curr_hook_def + "\n}\n"
 
         return _presentation + str(_imports) + "\n" + _hook_defs
