@@ -104,7 +104,7 @@ export class NodesController extends NodeManager implements NodeManagement {
             delete saveData["_id"];
         }
 
-        return this.$http.post("/node/save", saveData)
+        return this.$http.post("node/save", saveData)
             .success((_id) => {
                 let strId: string = _id.toString();
                 saveData["_id"] = strId;
