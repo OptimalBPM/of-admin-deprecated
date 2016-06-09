@@ -220,7 +220,6 @@ class CherryPyAdmin(object):
         self.admin_menus = _admin_menus
 
     @cherrypy.expose(alias="hook_wrapper.ts")
-    @aop_check_session
     def hook_wrapper(self, **kwargs):
         return self.admin_ui_hooks
 
