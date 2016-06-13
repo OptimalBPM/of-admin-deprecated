@@ -28,8 +28,6 @@ import "angular-sanitize";
 import "angular-animate";
 import "angular-schema-form";
 import "angular-schema-form-bootstrap";
-import "angular-ui-layout";
-import "angular-ui-layout/ui-layout.css!";
 import "font-awesome";
 
 import "bootstrap3-dialog";
@@ -45,7 +43,6 @@ import {CustomRootScope} from "../types/schemaTreeTypes";
 import IAugmentedJQuery = angular.IAugmentedJQuery;
 
 
-
 // BootstrapDialog ambient declaration as there is no type definition
 declare var BootstrapDialog: any;
 
@@ -53,7 +50,7 @@ function initApp() {
 
 
     // First initialize the app
-    initNodes();
+    //initNodes();
     let app: any = angular
         .module("mainApp",
             [
@@ -61,9 +58,12 @@ function initApp() {
                 "ngRoute",
                 "ngSanitize",
                 "ngTouch",
-                "nodesModule",
-                "ngCookies"
-                // "ngRoute", "mgcrea.ngStrap", "ui.tree", "ui.ace", "schemaForm", "ui.layout", "ngAnimate", "schemaTreeModule"
+                "ngCookies",
+                "ngAnimate",
+                "mgcrea.ngStrap",
+                "ui.tree",
+                "ui.ace",
+                "schemaForm"
             ]);
     // Call the init framework hook
     hook_initFramework(app);

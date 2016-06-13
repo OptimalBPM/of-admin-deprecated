@@ -1,4 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 
 import {SchemaTreeController} from "../controllers/schemaTreeController";
 import {NodeManager} from "nodeManager";
@@ -8,11 +9,11 @@ export interface CustomRootScope extends ng.IRootScopeService {
     BootstrapDialog: any;
 }
 
-interface CustomMBEScope extends ng.IScope {
+interface CustomOFScope extends ng.IScope {
     $root: CustomRootScope;
 }
 /* This interface is to add typing to the scope */
-export interface TreeScope extends CustomMBEScope {
+export interface TreeScope extends CustomOFScope {
     /* The url of the angular html template that render each node(not including decoration and expander*/
     itemRenderer: string;
 
@@ -40,7 +41,7 @@ export interface TreeScope extends CustomMBEScope {
 }
 
 
-export interface NodesScope extends CustomMBEScope {
+export interface NodesScope extends CustomOFScope {
     $root: CustomRootScope;
     ngform: any;
     nodeManager: any;
@@ -51,7 +52,7 @@ export interface NodesScope extends CustomMBEScope {
 
 }
 
-export interface NodeViewScope extends CustomMBEScope {
+export interface NodeViewScope extends CustomOFScope {
     collapsed: boolean;
     remove(): void;
     toggle(): void;

@@ -1,4 +1,4 @@
- {
+{
   "name": "optimalframework-admin",
   "version": "0.1.0",
   "scripts": {
@@ -65,7 +65,6 @@
       "angular-schema-form-dynamic-select": "npm:angular-schema-form-dynamic-select@^0.13.1",
       "angular-strap": "github:mgcrea/angular-strap@^2.3.2",
       "angular-touch": "github:angular/bower-angular-touch@^1.4.4",
-      "angular-ui-layout": "github:angular-ui/ui-layout@^1.2.0",
       "angular-ui-select": "github:angular-ui/ui-select@^0.12.1",
       "angular-ui-tree": "github:angular-ui-tree/angular-ui-tree@^2.10.0",
       "angular-ui/ui-ace": "github:angular-ui/ui-ace@^0.2.3",
@@ -78,15 +77,6 @@
       "networknt/angular-schema-form-ui-ace": "github:networknt/angular-schema-form-ui-ace@^0.1.2",
       "typescript": "npm:typescript@^1.6.0-dev.20150818"
     },
-    "devDependencies": {},
-    "overrides": {
-      "github:angular-ui/ui-layout@1.2.0": {
-        "format": "global",
-        "directories": {
-          "lib": "src"
-        },
-        "main": "ui-layout"
-      }
-    }
+    "devDependencies": {}
   }
 }

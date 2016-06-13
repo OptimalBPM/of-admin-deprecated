@@ -10,6 +10,9 @@ import {NodeManager} from "../types/nodeManager";
 
 /* The SchemaTreeControl class is instantiated as a controller class in the typescript model */
 export class SchemaTreeController {
+    /* The SchemaTreeController class holds the generic functionality of the schema-tree.
+     The schema tree consist of an angular-ui-tree and a angular-schema-form instance.
+      */
 
 
     /** An object whose properties are used as a key-value(dictionary) for to the actual data for the trees entities
