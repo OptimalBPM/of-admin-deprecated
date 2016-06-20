@@ -251,27 +251,31 @@ export class SchemaTreeController {
         return items;
     };
 
-    // TODO: Document this
+
+    
 
     addNode = (scope: NodeViewScope, item: TreeNode, isParent: boolean, schemaRef: string) => {
 
-        let _add = (scope, item) => {
+        // Create local functions as callback
 
-            SchemaTreeController.closeAddBars(item);
 
-            if (this.children && this.findChild(this.children, this.treeScope.newNodeObjectId)) {
-                scope.$root.BootstrapDialog.alert("You can only add one item at the time.");
-            }
+        let _add = (scope, item, template) => {
 
             if (!item.children) {
                 item.children = [];
             }
-
             // Create a new child, use a temporary
             let _newChild: TreeNode = new TreeNode();
             _newChild.id = this.treeScope.newNodeObjectId;
-            _newChild.title = "New " + this.schemas[schemaRef].title;
+
             _newChild.type = schemaRef;
+            if (template) {
+                _newChild.title = template["name"];
+            }
+            else
+            {
+                _newChild.title = "New " + this.schemas[schemaRef].title;
+            }
 
             if (isParent) {
                 item.children.unshift(_newChild);
@@ -282,29 +286,57 @@ export class SchemaTreeController {
             }
 
             let curr_datetime = new Date();
-            this.data[this.treeScope.newNodeObjectId] = {
-                _id: this.treeScope.newNodeObjectId,
-                parent_id: isParent ? item.id : item.parentItem.id,
-                name: _newChild.title,
-                createdWhen: curr_datetime.toISOString(),
-                schemaRef: schemaRef
-            };
+            let curr_data : any;
+            if (template) {
+                curr_data = template
+
+            } else {
+                curr_data = {
+                    name: _newChild.title,
+                    schemaRef: schemaRef
+                };
+            }
+            curr_data._id = this.treeScope.newNodeObjectId;
+            curr_data.parent_id = isParent ? item.id : item.parentItem.id;
+            curr_data.createdWhen =  curr_datetime.toISOString();
+
+
+            this.data[this.treeScope.newNodeObjectId] = curr_data;
             if (this.treeScope.nodeManager.onSelectNode) {
                 this.treeScope.nodeManager.onSelectNode(_newChild);
             }
-
         };
 
-        if (isParent && scope.collapsed) {
-            this.onAsyncToggleChildren(scope, item).then(() => {
-                this.log("returned from toggle_Children");
-                _add(scope, item);
-            });
+        let _handleCollapse = (scope, item, template) => {
+            // If the parent is collapsed, expand.
+            if (isParent && scope.collapsed) {
+                this.onAsyncToggleChildren(scope, item).then(() => {
+                    this.log("returned from toggle_Children");
+                    _add(scope, item, template);
+                });
 
+            }
+            else {
+                _add(scope, item, template);
+            }
+        };
+
+
+
+        SchemaTreeController.closeAddBars(item);
+
+        if (this.children && this.findChild(this.children, this.treeScope.newNodeObjectId)) {
+            scope.$root.BootstrapDialog.alert("You can only add one item at the time.");
+        }
+        if (this.treeScope.nodeManager.getTemplateAsync) {
+            this.treeScope.nodeManager.getTemplateAsync(schemaRef).success((_template) => {
+                _handleCollapse(scope, item, _template[0])
+            })
         }
         else {
-            _add(scope, item);
+            _handleCollapse(scope, item, null)
         }
+
 
         // TODO: ITRT: Fix different situations like adding multiple nodes without saving them.
 

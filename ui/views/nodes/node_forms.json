@@ -102,6 +102,13 @@
                                     "title": "Created when",
                                     "description": "The date and time the node was created.",
                                     "readonly": true
+                                },
+                                {
+                                    "key": "templateName",
+                                    "type": "text",
+                                    "title": "Template name",
+                                    "description": "The template used when the node was created.",
+                                    "readonly": true
                                 }
                             ]
                         }
@@ -308,5 +315,36 @@
             "description": "The name of the theme of the admin application",
             "readonly": false
         }
+    ],
+     "of://node_broker.json": [
+        {
+            "key": "address",
+            "type": "text",
+            "title":"Address",
+            "description": "The peer address.",
+            "readonly": false
+        },
+        {
+            "key": "peerType",
+            "title":"Type of peer",
+            "description": "The peer type",
+            "placeholder": "Select a peer type",
+            "readonly": false
+        },
+        {
+            "key": "repositories_location",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "The parent folder of all source repositories.",
+            "readonly": false
+        },
+        {
+            "key": "repositories_location",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "The parent folder of all source repositories.",
+            "readonly": false
+        }
     ]
+
 }

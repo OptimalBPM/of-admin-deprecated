@@ -83,7 +83,11 @@ export class NodesController extends NodeManager implements NodeManagement {
     onSubmit = (submitData: any): void => {
         this.saveNode(submitData);
     };
-
+    
+    getTemplateAsync = (schemaRef : string): ng.IHttpPromise<any> => {
+        return this.$http.post("/node/get_templates", {"schemaRef": schemaRef});
+    };
+    
 
     /**
      * Returns a promise to save the provided data to the database
@@ -102,7 +106,7 @@ export class NodesController extends NodeManager implements NodeManagement {
             delete saveData["_id"];
         }
 
-        return this.$http.post("node/save", saveData)
+        return this.$http.post("/node/save", saveData)
             .success((_id) => {
                 let strId: string = _id.toString();
                 saveData["_id"] = strId;
@@ -118,7 +122,7 @@ export class NodesController extends NodeManager implements NodeManagement {
             });
     };
 
-    /**
+    /*
      * Returns a CSS base class given a tree item
      * @param {TreeNode} node - the tree item.
      * @returns {string}
@@ -126,7 +130,7 @@ export class NodesController extends NodeManager implements NodeManagement {
     getClassFromItem = (node: TreeNode): string => {
         return "node";
     };
-    /**
+    /*
      * Returns a CSS icon base class given a node type
      * @param {string} nodeType - the node type.
      * @returns {string}

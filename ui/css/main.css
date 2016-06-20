@@ -20,28 +20,6 @@
     display: inline !important;
 }
 
-
-@font-face {
-    font-family: optivetica_round_lt_std;
-    src: url("../images/optivetica_round_lt_std-Bd.otf") format("opentype");
-}
-@font-face {
-    font-family: optivetica_round_lt_std;
-    font-style: italic;
-    src: url("../images/optivetica_round_lt_std-BdO.otf") format("opentype");
-}
-@font-face {
-    font-family: optivetica_round_lt_std;
-    font-weight: bold;
-    src: url("../images/optivetica_round_lt_std-Black.otf") format("opentype");
-}
-@font-face {
-    font-family: optivetica_round_lt_std;
-    font-weight: bold;
-    font-style: italic;
-    src: url("../images/optivetica_round_lt_std-BlkO.otf") format("opentype");
-}
-
 .status {
     display: none;
 }
@@ -118,7 +96,7 @@
     background-position: center;
     line-height: 1em;
     cursor: pointer;
-    width: 100%
+    width: 100%;
     display: block;
 
 }

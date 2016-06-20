@@ -114,8 +114,24 @@ export class NodeManager implements NodeManagement {
         console.log("getIconClass not implemented in " + this.getClassname() + " base class!");
         return "";
     };
+
+    getTemplateAsync = (schemaRef: string): ng.IHttpPromise<any> => {
+        console.log("getTemplateAsync not implemented in " + this.getClassname() + " base class!");
+        return null;
+    };
+
     onAsyncInitTree = (): ng.IPromise<any> => {
         console.log("onAsyncInitTree not implemented in " + this.getClassname() + " base class!");
+        return null;
+    };
+
+    onAsyncLoadChildren = (parentId: string): ng.IHttpPromise<any> => {
+        console.log("onAsyncLoadChildren not implemented in " + this.getClassname() + " base class!");
+        return null;
+    };
+
+    onAsyncRemoveNode = (parentId: string): ng.IHttpPromise<any> => {
+        console.log("onAsyncRemoveNode not implemented in " + this.getClassname() + " base class!");
         return null;
     };
 
