@@ -1,0 +1,99 @@
+[
+  {
+            "key": "pipPackages",
+            "type": "array",
+            "title":"Pip packages",
+            "description": "The Pip-packages that the process depends on",
+            "readonly": false,
+            "items": [
+                {
+                    "key": "pipPackages[]",
+                    "type": "string",
+                    "title":"Package name"
+                }
+                ]
+        },
+        {
+            "key": "entryPoint",
+            "title": "Entry point",
+            "description": "The entry point of the process",
+            "items": [
+                {
+                    "key": "entryPoint.moduleName",
+                    "type": "string",
+                    "title": "Module name",
+                    "description": "The module to enter",
+                    "readonly": false
+                },
+                {
+                    "key": "entryPoint.functionName",
+                    "type": "string",
+                    "title": "Function name",
+                    "description": "The name of the function to be called",
+                    "readonly": false
+                }
+
+            ]
+        },
+        {
+            "key": "folder",
+            "type": "text",
+            "title":"Folder",
+            "description": "The folder where the process source code is located",
+            "readonly": false
+        },
+        {
+            "key": "canStart",
+            "title": "Start",
+            "type": "strapselect",
+            "description": "The groups that can start the process.",
+            "placeholder": "No groups selected",
+            "startEmpty": false,
+            "options": {
+                "multiple": "true",
+                "httpPost": {
+                    "url": "/node/lookup",
+                    "parameter": {
+                        "conditions": {"parent_id": "ObjectId(000000010000010001e64c24)"},
+                        "collection": "node"
+                    }
+                }
+            }
+        },
+        {
+            "key": "canStop",
+            "title": "Stop",
+            "type": "strapselect",
+            "description": "The groups that can stop the process.",
+            "placeholder": "No groups selected",
+            "startEmpty": false,
+            "options": {
+                "multiple": "true",
+                "httpPost": {
+                    "url": "/node/lookup",
+                    "parameter": {
+                        "conditions": {"parent_id": "ObjectId(000000010000010001e64c24)"},
+                        "collection": "node"
+                    }
+                }
+            }
+        },
+        {
+            "key": "runAs",
+            "title": "Run as",
+            "type": "strapselect",
+            "description": "The user to run as.",
+            "placeholder": "No users selected",
+            "startEmpty": false,
+            "options": {
+                "multiple": "false",
+                "httpPost": {
+                    "url": "/node/lookup",
+                    "parameter": {
+                        "conditions": {"parent_id": "ObjectId(000000010000010001e64c25)"},
+                        "collection": "node"
+                    }
+                }
+            }
+        }
+]

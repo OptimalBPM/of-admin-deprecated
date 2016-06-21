@@ -1,0 +1,30 @@
+[
+        {
+            "key": "address",
+            "type": "text",
+            "title":"Address",
+            "description": "The peer address.",
+            "readonly": false
+        },
+        {
+            "key": "peerType",
+            "title":"Type of peer",
+            "description": "The peer type",
+            "placeholder": "Select a peer type",
+            "readonly": false
+        },
+        {
+            "key": "repositories_location",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "The parent folder of all source repositories.",
+            "readonly": false
+        },
+        {
+            "key": "repositories_location",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "The parent folder of all source repositories.",
+            "readonly": false
+        }
+    ]

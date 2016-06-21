@@ -1,0 +1,18 @@
+[
+        {
+            "key": "rights",
+            "title": "Rights",
+            "type": "strapselect",
+            "description": "The rights the group has.",
+            "placeholder": "No rights selected",
+            "startEmpty": false,
+            "options": {
+                "multiple": "true",
+                "httpPost": {
+                    "url": "/node/lookup",
+                    "parameter": {"conditions": {"parent_id": "ObjectId(000000010000010001e64c26)"}, "collection": "node"}
+                }
+            }
+        }
+
+    ]

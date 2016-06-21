@@ -1,0 +1,9 @@
+[
+        {
+            "key": "repositoriesLocation",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "Where repositories are located",
+            "readonly": false
+        }
+    ]

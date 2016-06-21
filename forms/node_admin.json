@@ -1,0 +1,9 @@
+[
+        {
+            "key": "theme",
+            "type": "text",
+            "title":"Theme",
+            "description": "The name of the theme of the admin application",
+            "readonly": false
+        }
+    ]

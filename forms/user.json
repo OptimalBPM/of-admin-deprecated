@@ -1,0 +1,46 @@
+[
+        {
+            "title": "Credentials",
+            "type": "fieldset",
+            "items": [
+                {
+                    "type": "tabs",
+                    "tabs": [
+                        {
+                            "title": "Username/Password",
+                            "items": [
+                                {
+                                    "key": "credentials['usernamePassword']['username']",
+                                    "title": "Username",
+                                    "description": "The username.",
+                                    "type": "text",
+                                    "readonly": false
+                                },
+                                {
+                                    "key": "credentials['usernamePassword']['password']",
+                                    "type": "password",
+                                    "title": "Password",
+                                    "description": "The password.",
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "groups",
+            "title": "Groups",
+            "description": "The groups the user belongs to.",
+            "placeholder": "No groups selected",
+            "startEmpty": false,
+            "type": "strapselect",
+            "options": {
+                "httpPost": {
+                    "url": "/node/lookup",
+                    "parameter": {"conditions": {"parent_id": "ObjectId(000000010000010001e64c24)"}, "collection": "node"}
+                }
+            }
+        }
+    ]

@@ -1,0 +1,16 @@
+[
+        {
+            "key": "repositoriesLocation",
+            "type": "text",
+            "title":"Repositories location",
+            "description": "Where repositories are located",
+            "readonly": false
+        },
+        {
+            "key": "numberOfWorkers",
+            "type": "text",
+            "title":"Number of workers",
+            "description": "The number of worker processes the agent will start to handle requests.",
+            "readonly": false
+        }
+    ]
