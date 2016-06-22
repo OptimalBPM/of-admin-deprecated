@@ -143,6 +143,8 @@ class CherryPyAdmin(object):
         # Generate the imports
         _imports = ""
         for _curr_plugin_key, _curr_plugin in self.plugins.items():
+            _imports += "import '" + _curr_plugin["admin-ui"][
+                "mountpoint"] + "/hooks';\n"
             for _hook in _hooks:
                 _hook_alias = _curr_plugin_key + "_" + _hook["name"]
                 _imports+="import {" + _hook["name"] +" as " + _hook_alias + "} from '" + _curr_plugin["admin-ui"]["mountpoint"] + "/hooks';\n"
