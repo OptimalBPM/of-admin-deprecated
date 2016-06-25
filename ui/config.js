@@ -12,6 +12,9 @@ System.config({
     },
     "/admin/jspm_packages": {
       "defaultExtension": "js"
+    },
+     "/": {
+      "defaultExtension": "ts"
     }
   },
 
